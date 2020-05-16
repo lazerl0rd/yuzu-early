@@ -149,8 +149,7 @@ static void ResetThreadContext64(Core::ARM_Interface::ThreadContext64& context, 
     context.cpu_registers[0] = arg;
     context.pc = entry_point;
     context.sp = stack_top;
-    // TODO(merry): Perform a hardware test to determine the below value.
-    context.fpcr = 0;
+    context.fpcr = 0x03C00000;
 }
 
 ResultVal<std::shared_ptr<Thread>> Thread::Create(KernelCore& kernel, std::string name,
