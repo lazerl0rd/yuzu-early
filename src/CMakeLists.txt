@@ -60,7 +60,12 @@ else()
         -Wmissing-declarations
         -Wno-attributes
         -Wno-unused-parameter
+        -mcx16
+        -lboost_context
+        -lfmt
     )
+
+    link_libraries("-lboost_context -lfmt")
 
     if (APPLE AND CMAKE_CXX_COMPILER_ID STREQUAL Clang)
         add_compile_options("-stdlib=libc++")
